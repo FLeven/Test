@@ -1,0 +1,30 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Init workspace
+      shell: pwsh
+      run: ./build.ps1 -Task Init
+    - name: CleanUp the workpace
+      shell: pwsh
+      run: ./build.ps1 -Task Clean
+    - name: Build the module
+      shell: pwsh
+      run: ./build.ps1 -Task Build
+    - name: Lint with PSScriptAnalyzer
+      shell: pwsh
+      run: ./build.ps1 -Task Analzye
+    - name: Pester testing
+      shell: pwsh
+      run: ./build.ps1 -Task Pester
+    - name: Publishto PSGallery
+      shell: pwsh
+      run: ./build.ps1 -Task Publish
