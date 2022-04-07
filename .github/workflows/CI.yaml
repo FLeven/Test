@@ -13,5 +13,5 @@ jobs:
     - name: Init workspace
       shell: pwsh
       run: |
-      Get-module
+        Set-PSRepository PSGallery -InstallationPolicy Trusted
         ./build.ps1 -Task Publish -Bootstrap
