@@ -13,4 +13,5 @@ jobs:
     - name: Init workspace
       shell: pwsh
       run: |
+      Get-module
         ./build.ps1 -Task Publish -Bootstrap
