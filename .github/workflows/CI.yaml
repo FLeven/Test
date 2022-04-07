@@ -12,19 +12,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Init workspace
       shell: pwsh
-      run: ./build.ps1 -Task Init -Bootstrap
-    - name: CleanUp the workpace
-      shell: pwsh
-      run: ./build.ps1 -Task Clean
-    - name: Build the module
-      shell: pwsh
-      run: ./build.ps1 -Task Build
-    - name: Lint with PSScriptAnalyzer
-      shell: pwsh
-      run: ./build.ps1 -Task Analzye
-    - name: Pester testing
-      shell: pwsh
-      run: ./build.ps1 -Task Pester
-    - name: Publishto PSGallery
-      shell: pwsh
-      run: ./build.ps1 -Task Publish
+      run: |
+        ./build.ps1 -Task Publish -Bootstrap
