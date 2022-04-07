@@ -23,7 +23,7 @@ jobs:
       run: ./build.ps1 -Task Build
     - name: Lint with PSScriptAnalyzer
       shell: pwsh
-      run: ./build.ps1 -Task Analzye
+      run: ./build.ps1 -Task Analyze
     - name: Pester testing
       shell: pwsh
       run: ./build.ps1 -Task Pester
