@@ -13,7 +13,7 @@ jobs:
       run: ./build.ps1 -Task Test -Bootstrap
       
     - name: pester tests report
-      uses: zyborg/pester-tests-report@v1.3.3
+      uses: zyborg/pester-tests-report@v1.5.0
       with:
         test_results_path: testResults.xml
         coverage_paths: tests/
