@@ -18,6 +18,6 @@ jobs:
         report_name: Pester
         report_title: Pester test
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        include_paths: /tests/
+        include_paths: /tests
         coverage_report_name: CoverageResults
-        coverage_paths: /Test/Public/,/Test/Private
+        coverage_paths: /Test/Public/, /Test/Private
