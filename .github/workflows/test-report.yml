@@ -10,7 +10,6 @@ jobs:
     steps:
     - uses: dorny/test-reporter@v1
       with:
-        artifact: test-results            # artifact name
         name: Pester Tests                # Name of the check run which will be created
-        path: 'testResults.xml'           # Path to test results (inside artifact .zip)
+        path: './testResults.xml'           # Path to test results (inside artifact .zip)
         reporter: dotnet-trx              # Format of test results
