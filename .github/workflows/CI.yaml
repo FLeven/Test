@@ -13,11 +13,15 @@ jobs:
     - name: Init workspace
       shell: pwsh
       run: ./build.ps1 -Task Publish -Bootstrap
+      
     - name: Install NUnit
       run: nuget install NUnit.Console -Version 3.12.0
+      shell: bash
+      
     - name: Fetch transform code
       run: wget https://raw.githubusercontent.com/nunit/nunit-transforms/master/nunit3-junit/nunit3-junit.xslt
       shell: bash
+      
     - name: Transform NUnit3 to JUnit
       run: |
           Get-ChildItem . -Filter test-results.xml | Foreach-Object {
@@ -28,6 +32,7 @@ jobs:
             $xslt.Transform($xml, $output);
           }
       shell: pwsh
+      
     - uses: dorny/test-reporter@v1
       if: success() || failure()    # run this step even if previous step failed
       with:
