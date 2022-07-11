@@ -15,8 +15,8 @@ jobs:
     - name: pester tests report
       uses: zyborg/pester-tests-report@v1.5.0
       with:
-        coverage_paths: tests/
         report_name: Pester
         report_title: Pester test
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        coverage_results_path: codeCoverage.xml
+        coverage_paths: Test\Private,Test\Public
+        coverage_report_name: CoverageResults
