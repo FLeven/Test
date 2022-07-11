@@ -4,7 +4,7 @@ properties {
     $PSBPreference.Help.DefaultLocale = 'en-US'
     $PSBPreference.Test.OutputFile = 'out/testResults.xml'
     $PSBPreference.Test.CodeCoverage.Enabled  = $true
-    $PSBPreference.Test.CodeCoverage.OutputFileOutputFormat = 'JaCoCo'
+    $PSBPreference.Test.CodeCoverage.OutputFileFormat = 'JaCoCo'
     $PSBPreference.Test.CodeCoverage.Threshold = .00
     $PSBPreference.Test.CodeCoverage.Files = @('..\Test\Private\*.ps1', '..\Test\Public\*.ps1')
 }
