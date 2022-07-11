@@ -19,4 +19,4 @@ jobs:
         coverage_paths: ./tests/
         report_name: Pester
         report_title: Pester test
-        github_token: ${{ secrets.GT }}
+        github_token: ${{ secrets.GH_TOKEN }}
