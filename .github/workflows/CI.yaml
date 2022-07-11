@@ -21,3 +21,5 @@ jobs:
         include_paths: tests
         coverage_report_name: CoverageResults
         coverage_paths: Test/Public,Test/Private
+        test_results_path: tests
+        coverage_results_path: tests
