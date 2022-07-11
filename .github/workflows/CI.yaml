@@ -18,5 +18,4 @@ jobs:
         report_name: Pester
         report_title: Pester test
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        coverage_paths: Test/Private,Test/Public
         coverage_report_name: CoverageResults
