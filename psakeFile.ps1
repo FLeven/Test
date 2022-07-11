@@ -1,5 +1,6 @@
 properties {
     # Set this to $true to create a module with a monolithic PSM1
+    $configuration.Run.PassThru            = $true
     $PSBPreference.Build.CompileModule = $false
     $PSBPreference.Help.DefaultLocale = 'en-US'
     $PSBPreference.Test.OutputFile = 'out/testResults.xml'
