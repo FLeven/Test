@@ -6,7 +6,7 @@ properties {
     $PSBPreference.Test.CodeCoverage.Threshold = .00
     $PSBPreference.Test.CodeCoverage.Files = @('..\Test\Private\*.ps1', '..\Test\Public\*.ps1')
     $PSBPreference.Test.CodeCoverage.OutputFormat = 'JaCoCo'
-    $PSBPreference.Test.OutputFormat = 'NUnitXml'
+    $PSBPreference.Test.OutputFormat = 'NUnit2.5'
 }
 
 task Default -depends Test
