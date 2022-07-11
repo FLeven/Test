@@ -12,28 +12,11 @@ jobs:
       shell: pwsh
       run: ./build.ps1 -Task Test -Bootstrap
       
-    - name: Install NUnit
-      run: nuget install NUnit.Console -Version 3.12.0
-      shell: bash
-      
-    - name: Fetch transform code
-      run: wget https://raw.githubusercontent.com/nunit/nunit-transforms/master/nunit3-junit/nunit3-junit.xslt
-      shell: bash
-      
-    - name: Transform NUnit3 to JUnit
-      run: |
-          Get-ChildItem  . -Filter test*.xml | Foreach-Object {
-            $xml = Resolve-Path $_.FullName
-            $output = Join-Path ($pwd) ($_.BaseName + '_junit.xml')
-            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
-            $xslt.Load("nunit3-junit.xslt");
-            $xslt.Transform($xml, $output);
-          }
-      shell: pwsh
-      
-    - uses: dorny/test-reporter@v1
-      if: success() || failure()    # run this step even if previous step failed
+    - name: pester tests report
+      uses: zyborg/pester-tests-report@v1.3.0
       with:
-          name: "NUnit tests for $1"
-          path: "*_junit.xml"
-          reporter: jest-junit
+        test_results_path: ${{ steps.pesterTests.outputs.test_results_path }}
+        result_clixml_path: ${{ steps.pesterTests.outputs.result_clixml_path }}
+        report_name: Pester
+        report_title: Pester test
+        github_token: ${{ secrets.GT }}
