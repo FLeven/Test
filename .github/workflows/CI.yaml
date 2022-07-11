@@ -20,4 +20,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_paths: /tests
         coverage_report_name: CoverageResults
-        coverage_paths: /Test/Public/, /Test/Private
+        coverage_paths: /Test/Public,/Test/Private
